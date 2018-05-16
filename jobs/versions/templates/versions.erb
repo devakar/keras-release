@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+RUN_DIR=/var/vcap/sys/run/versions
+LOG_DIR=/var/vcap/sys/log/versions
+PIDFILE=${RUN_DIR}/versions.pid 
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+  start)
+    pid_guard $PIDFILE "versions"
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+    echo $$ > $PIDFILE
+    chown vcap:vcap $PIDFILE
+    cd /var/vcap/packages/versions/
+    for dir in $(ls -d /var/vcap/packages/*/bin); do export PATH=$dir:$PATH; done
+    for dir in $(ls -d /var/vcap/packages/*/lib); do export LD_LIBRARY_PATH=$dir:${LD_LIBRARY_PATH:-}; done
+    . venv/bin/activate
+    exec python3 version.py\
+      >>  $LOG_DIR/versions.stdout.log \
+      2>> $LOG_DIR/versions.stderr.log
+    ;;
+  stop)
+    kill_and_wait $PIDFILE
+    ;;
+  *)
+    echo "Usage: versions {start|stop}" 
+   ;;
+esac
+

@@ -1,0 +1,5 @@
+check process versions
+  with pidfile /var/vcap/sys/run/versions/versions.pid
+  start program "/var/vcap/jobs/versions/bin/versions start"
+  stop program "/var/vcap/jobs/versions/bin/versions stop"
+  group vcap

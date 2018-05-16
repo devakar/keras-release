@@ -1,0 +1,15 @@
+python/Python-3.6.2.tar.xz:
+  size: 16907204
+  sha: 4f92a045de9231b93dfbed50c66bb12cf03ac59a
+python/pip-10.0.1-py2.py3-none-any.whl:
+  size: 1307639
+  sha: bed4d1300f778a636fc7d2733ee451daff1b6405
+python/setuptools-3.6-py2.py3-none-any.whl:
+  size: 547415
+  sha: 3d2a5d2b5e7b2eefcd72de6694c1f3ccb539b288
+python/virtualenv-15.2.0-py2.py3-none-any.whl:
+  size: 2592245
+  sha: 1798b87dff0166296dbdd5e22ef55632e13b2d11
+python/wheel-0.31.1-py2.py3-none-any.whl:
+  size: 41567
+  sha: c6f78e969470216bca108cd961e2380fea23613f

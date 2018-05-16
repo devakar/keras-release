@@ -1,0 +1,26 @@
+name: predictive
+version: 0+dev.2
+commit_hash: non-git
+uncommitted_changes: false
+jobs:
+- name: versions
+  version: 478dc53b318fcfdcc127783529ac939e8c3d8843
+  fingerprint: 478dc53b318fcfdcc127783529ac939e8c3d8843
+  sha1: a229671a159c2fe483e22c5627705b6dd4cb9893
+packages:
+- name: common
+  version: d55bf4f97dbabba06b2c53e43819b111f6c96a6f
+  fingerprint: d55bf4f97dbabba06b2c53e43819b111f6c96a6f
+  sha1: 4dd69cdec3febe090df6eb6d782eb8236fc6ad07
+  dependencies: []
+- name: python
+  version: b75090a2889d1a92d9699b88f726f81f884ca52d
+  fingerprint: b75090a2889d1a92d9699b88f726f81f884ca52d
+  sha1: 8ed694d54b7875973c8f475b860848f5b473c32a
+  dependencies: []
+- name: versions
+  version: 2470fd3b3f50affbb51259068832b2526f26804a
+  fingerprint: 2470fd3b3f50affbb51259068832b2526f26804a
+  sha1: 33270d736c44be0640a861be69b405329171ba44
+  dependencies:
+  - python

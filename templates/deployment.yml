@@ -1,0 +1,35 @@
+---
+
+name: predictive
+
+# Release Details
+releases:
+- name: predictive
+  version: latest
+
+instance_groups:
+- name: versions
+  azs:
+  - z1
+  instances: 1
+  vm_type: small
+  stemcell: default
+  networks:
+  - name: default
+  jobs:
+  - name: versions
+    release: predictive
+    properties: {}
+
+variables: []
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+update:
+  canaries: 1
+  canary_watch_time: 1000-60000
+  update_watch_time: 1000-60000
+  max_in_flight: 3

@@ -1,0 +1,13 @@
+---
+name: versions
+
+templates:
+  versions.erb: bin/versions
+
+packages:
+  - python
+  - versions
+  - common
+
+properties: {}
+
