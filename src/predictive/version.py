@@ -27,7 +27,8 @@
 #!flask/bin/python
 from flask import Flask, jsonify
 import numpy, pandas, requests, scipy, sklearn, h5py, flask, tensorflow, keras
-
+from tasks import taskman
+import model
 app = Flask(__name__)
 
 @app.route('/')
@@ -44,6 +45,16 @@ def index():
         'keras' : keras.__version__
     }
     return jsonify({'versions': versions})
+
+@app.route('/apps')
+def modelrun():
+    taskman.add_task(model.models)
+    return "Hell World"
+
+@app.route('/modelstate')
+def modelbuild():
+    taskman.add_task(model.create_model)
+    return "Building the model"
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
